@@ -1,0 +1,22 @@
+<div class="pokemon-card" *ngIf="pokemon">
+  <div class="pokemon-card__img">
+    <img [src]="getPokemonImage(pokemon)" alt="Pokemon image" />
+  </div>
+
+  <div class="pokemon-card__number">Nº {{ getPokemonNumber(pokemon) }}</div>
+
+  <div class="pokemon-card__name">{{ pokemon.name }}</div>
+
+  <div class="pokemon-card__types">
+    <div
+      class="pokemon-card__type"
+      *ngFor="let type of pokemon.types"
+      [class]="'pokemon-card__type--' + type.toLocaleLowerCase()"
+    >
+      {{ type }}
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="../pokemon-card/vanilla-tilt.js">
+  VanillaTilt.init(document.querySelectorAll(".pokemon-card"));
+</script>
